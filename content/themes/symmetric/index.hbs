@@ -1,0 +1,57 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<main id="home" class="main" role="main">
+
+	<!-- start: .center -->
+	<div class="center content grid-container">
+
+		<!-- start: .carousel -->
+		<section class="carousel section">
+			<h3 class="title bordered">HEADLINES</h3>
+			<div id="featured-posts" class="owl-carousel owl-theme"></div>
+		</section>
+		<!-- end: .carousel -->
+
+		<!-- start: .ads -->
+		<!-- <div class="ads textcenter">
+			<a href="http://themeforest.net/user/estudiopatagon/portfolio?ref=EstudioPatagon" target="_blank"><img src="{{asset "images/ad-970x90.jpg"}}" class="img-ad"></a>
+		</div> -->
+		<!-- end: .ads -->
+
+				{{> tweets}}
+
+		<!-- start: .left-content -->
+		<div class="left-content section articles grid-parent grid-50">
+			<h3 class="title bordered">RECENT NEWS</h3>
+
+			{{#foreach posts}}
+				{{#if @first}}
+					{{> first-article}}
+
+				{{else}}
+
+					{{> default-article}}
+
+				{{/if}}
+			{{/foreach}}
+
+			{{pagination}}
+
+		</div>
+		<!-- end: .left-content -->
+
+		<div class="section">
+
+			{{> sidebar-featured}}
+
+			{{> sidebar-default}}
+
+		</div>
+
+	</div>
+	<!-- end: .center -->
+
+</main>

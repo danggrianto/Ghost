@@ -1,0 +1,30 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<!-- start: #archives-->
+<main id="archives" class="main" role="main">
+
+	<!-- start: .center -->
+	<div class="center grid-container">
+
+		<div class="left-content section articles grid-parent grid-75">
+
+			{{#foreach posts}}
+				{{> tag-article}}
+			{{/foreach}}
+			{{pagination}}
+		</div>
+
+		<div class="section">
+
+			{{> sidebar-featured}}
+
+		</div>
+
+	</div>
+	<!-- end: .center -->
+
+</main>
+<!-- end: #archives -->
